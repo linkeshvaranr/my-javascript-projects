@@ -1,0 +1,7 @@
+.outer-container{
+    display: flex;
+    flex: auto;
+    color: aqua;
+    background-color: black;
+    height: 20%;
+}
