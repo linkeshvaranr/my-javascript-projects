@@ -6,10 +6,13 @@ let startButton = document.getElementById('start-btn')
 let pauseButton = document.getElementById('pause-btn')
 let clearButton = document.getElementById('clear-btn')
 let lapButton = document.getElementById('lap-btn')
+
 startButton.addEventListener('click',startTimer)
 pauseButton.addEventListener('click',pause)
 clearButton.addEventListener('click',clear)
 lapButton.addEventListener('click',lapfunc)
+
+
 
 var timer
 var sec =0
@@ -28,6 +31,7 @@ function clear(){
     sec =0
     min =0
     hor =0
+    lapCount=1
 
 
 }
@@ -61,9 +65,9 @@ timer = setInterval(() => {
 
 
 }
-
+let lapCount =1
 function lapfunc(){
-    emptyDoc.innerHTML += `<div> ${ (hor<10 ?"0"+hor : hor) + " : " + (min<10?"0"+min:min) + " : " + (sec<10?"0"+sec:sec)} </div>`
+    emptyDoc.innerHTML += `<div style="text-align: center;font-size: 20px; font-family:cursive" > ${(lapCount++) +") "+ (hor<10 ?"0"+hor : hor) + " : " + (min<10?"0"+min:min) + " : " + (sec<10?"0"+sec:sec)} </div> <hr>`
     
 }
 
