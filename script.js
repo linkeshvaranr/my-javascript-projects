@@ -12,6 +12,25 @@ pauseButton.addEventListener('click',pause)
 clearButton.addEventListener('click',clear)
 lapButton.addEventListener('click',lapfunc)
 
+document.addEventListener("keypress",function(event){
+    if(event.key == "s"){
+        startTimer()
+
+    }
+    if(event.key == "p"){
+        pause()
+
+    }
+    if(event.key == "l"){
+        lapfunc()
+
+    }
+    if(event.key == "c"){
+        clear()
+
+    }
+})
+
 
 
 var timer
@@ -20,7 +39,9 @@ var min =0
 var hor =0
 
 function pause(){
-    clearInterval(timer)   
+    clearInterval(timer)
+    startButton.disabled=false 
+    pauseButton.disabled=true 
 }
 function clear(){
     horDoc.innerHTML="00"
@@ -38,8 +59,10 @@ function clear(){
 
 
 function startTimer(){  
+startButton.disabled=true
+pauseButton.disabled=false
     
-startButton.innerHTML="pause"
+
 timer = setInterval(() => {
         
 
@@ -67,7 +90,7 @@ timer = setInterval(() => {
 }
 let lapCount =1
 function lapfunc(){
-    emptyDoc.innerHTML += `<div style="text-align: center;font-size: 20px; font-family:cursive" > ${(lapCount++) +") "+ (hor<10 ?"0"+hor : hor) + " : " + (min<10?"0"+min:min) + " : " + (sec<10?"0"+sec:sec)} </div> <hr>`
+    emptyDoc.innerHTML += `<div style="text-align: center;font-size: 20px; font-family:cursive" > ${(lapCount++) +") "+ (hor<10 ?"0"+hor : hor) + " : " + (min<10?"0"+min:min) + "min : " + (sec<10?"0"+sec:sec)+"s"} </div> <hr>`
     
 }
 
